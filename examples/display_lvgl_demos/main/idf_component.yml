@@ -1,0 +1,5 @@
+description: BSP Display rotation example
+dependencies:
+  bsp-cheap-yellow-display:
+    version: "*"
+    override_path: "..\\..\\.."
