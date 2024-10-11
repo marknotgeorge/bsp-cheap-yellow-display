@@ -1,0 +1,15 @@
+description: A Board Support Package for the ESP32-2432S028R development board, also known as the 'Cheap Yellow Display'.
+
+url: https://github.com/marknotgeorge/bsp-cheap-yellow-display
+issues: https://github.com/marknotgeorge/bsp-cheap-yellow-display/issues
+documentation: https://github.com/marknotgeorge/bsp-cheap-yellow-display/tree/main/README.md
+repository: https://github.com/marknotgeorge/bsp-cheap-yellow-display.git
+
+dependencies:
+  idf: ">=5.0.0"
+
+targets:
+  - "esp32"
+
+tags:
+  - bsp
