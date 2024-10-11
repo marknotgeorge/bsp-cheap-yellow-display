@@ -55,3 +55,4 @@ sdkconfig
 sdkconfig.old
 managed_components
 .vscode
+examples/display_lvgl_demos/dependencies.lock
