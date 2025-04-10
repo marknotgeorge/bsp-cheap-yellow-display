@@ -15,11 +15,11 @@ The CYD has the following specifications:
 
 ## Using the component
 
-** The following won't work until the package is uploaded to the Espressif Component Registry:
+**The following won't work until the package is uploaded to the Espressif Component Registry:
 
 If you have an existing ESP-IDF project you can run the following command to install the component:
 ```bash
-idf.py add-dependency "igrr/arduino-nano-esp32"
+idf.py add-dependency "dont-bother/this-wont-work"
 ```
 
 
