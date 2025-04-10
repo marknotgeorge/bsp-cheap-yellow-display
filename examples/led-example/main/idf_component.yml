@@ -1,0 +1,6 @@
+description: Example of using the LED component
+
+dependencies:
+  bsp-cheap-yellow-display:
+    version: "*"
+    override_path: '../../../'

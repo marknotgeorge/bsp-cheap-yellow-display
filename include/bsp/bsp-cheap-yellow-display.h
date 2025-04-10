@@ -5,12 +5,14 @@
 
 #include "sdkconfig.h"
 #include "driver/gpio.h"
-#include "driver/sdmmc_host.h"
-#include "bsp/config.h"
-#include "bsp/display.h"
-#include "bsp/touch.h"
+// #include "driver/sdmmc_host.h"
+
+// #include "bsp/touch.h"
+// #include "iot_button.h"
+#include "led_indicator.h"
 
 #if (BSP_CONFIG_NO_GRAPHIC_LIB == 0)
+#include "bsp/display.h"
 #include "lvgl.h"
 #include "esp_lvgl_port.h"
 #endif // BSP_CONFIG_NO_GRAPHIC_LIB == 0
@@ -19,9 +21,13 @@
  *  BSP Capabilities
  **************************************************************************************************/
 
+#if (CONFIG_BSP_NO_GRAPHIC_LIB == 0)
 #define BSP_CAPS_DISPLAY 1
+#endif // CONFIG_BSP_NO_GRAPHIC_LIB == 0
+
 #define BSP_CAPS_TOUCH 1
 #define BSP_CAPS_BUTTONS 1
+#define BSP_CAPS_LEDS 1
 #define BSP_CAPS_AUDIO 1
 #define BSP_CAPS_AUDIO_SPEAKER 1
 #define BSP_CAPS_AUDIO_MIC 0
@@ -40,6 +46,10 @@ typedef enum bsp_led_t
     BSP_LED_BLUE = GPIO_NUM_17
 
 } bsp_led_t;
+
+#define BSP_LED_NUM (1)
+
+#define BSP_LED_RED_CHANNEL CONFIG
 
 // Display
 #define BSP_LCD_SPI_MOSI (GPIO_NUM_13)
@@ -82,10 +92,30 @@ typedef enum
     BSP_BUTTON_BOOT
 } bsp_button_t;
 
+// Default LED effects
+enum
+{
+    BSP_LED_ON,
+    BSP_LED_OFF,
+    BSP_LED_BLINK_FAST,
+    BSP_LED_BLINK_SLOW,
+    BSP_LED_BREATHE_FAST,
+    BSP_LED_BREATHE_SLOW,
+    BSP_LED_MAX,
+};
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+    /// @brief Initialise all LEDs
+    /// @note 'led_cnt' and 'led_array' unused - only one config needed to control LEDs
+    /// @param[out] led_array Output LED array
+    /// @param[out] led_cnt Number of LEDhandlers saved to led_array. Can be NULL
+    /// @param led_array_size Size of output LED array. Must be at least BSP_LED_NUM
+    /// @return - ESP_OK Success; ESP_ERR_INVALID_ARG Parameter error
+    esp_err_t bsp_led_indicator_create(led_indicator_handle_t led_array[], int *led_cnt, int led_array_size);
 
 #ifdef __cplusplus
 }

@@ -6,8 +6,15 @@ documentation: https://github.com/marknotgeorge/bsp-cheap-yellow-display/tree/ma
 repository: https://github.com/marknotgeorge/bsp-cheap-yellow-display.git
 
 dependencies:
+  espressif/button: "^4.1.1"
   idf: ">=5.0.0"
   espressif/esp_lvgl_port: "^2.3.2"
+
+  espressif/led_indicator:
+    version: ">=0.7,<=0.8"
+    public: true
+
+  
 
 targets:
   - "esp32"

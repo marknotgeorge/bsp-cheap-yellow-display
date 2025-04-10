@@ -7,6 +7,12 @@ menu "Board Support Package"
         help
             Error check assert the application before returning the error code.
 
+    config BSP_CONFIG_NO_GRAPHIC_LIB
+        bool "Disable graphic library"
+        default n
+        help
+            Disable graphic library in BSP. This is useful when the application does not use any graphic library.
+
     menu "SPIFFS - Virtual File System"
         config BSP_SPIFFS_FORMAT_ON_MOUNT_FAIL
             bool "Format SPIFFS if mounting fails"
@@ -56,4 +62,5 @@ menu "Board Support Package"
                 LEDC channel is used to generate PWM signal that controls display brightness.
                 Set LEDC index that should be used.
     endmenu
+
 endmenu
